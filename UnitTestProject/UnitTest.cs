@@ -27,7 +27,14 @@ namespace UnitTestProject
         public void PatternReturnWrongAnswer()
         {
             Pattern pattern = new Pattern();
-            Assert.Equal(3, pattern.GetWrongAnswers(3).Count);
+            var correctAnswer = pattern.VeryAnswer;
+            var wrongAnswer = pattern.GetWrongAnswers(3);
+            Assert.Equal(3, wrongAnswer.Count);
+
+            foreach (var answer in wrongAnswer)
+            {
+                Assert.NotEqual(correctAnswer, answer);
+            }
         }
     }
 }
