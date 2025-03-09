@@ -3,6 +3,8 @@ using System.Linq;
 using Xunit;
 using PatternGuess;
 using System.Collections.Generic;
+using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace UnitTestProject
 {
@@ -36,5 +38,18 @@ namespace UnitTestProject
                 Assert.NotEqual(correctAnswer, answer);
             }
         }
+
+        [Fact]
+        public void PatternGetImage()
+        {
+            var pattern = new Pattern();
+            string imagePath = pattern.VeryAnswer;
+
+            BitmapImage image = pattern.GetImageFromFile(imagePath);
+
+            Assert.NotNull(image);
+        }
+
+
     }
 }
