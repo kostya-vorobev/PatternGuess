@@ -26,5 +26,25 @@ namespace PatternGuess
         }
 
         public string VeryAnswer { get => veryAnswer; set => veryAnswer = value; }
+
+        public List<string> GetWrongAnswers(int count)
+        {
+            string correctAnswer = veryAnswer;
+            var wrongAnswers = new List<string>();
+
+            var availableNames = patternNames.Where(name => name != correctAnswer).ToList();
+
+            for (int i = 0; i < count; i++)
+            {
+                if (availableNames.Count == 0)
+                    break;
+
+                int index = random.Next(availableNames.Count);
+                wrongAnswers.Add(availableNames[index]);
+                availableNames.RemoveAt(index);
+            }
+
+            return wrongAnswers;
+        }
     }
 }
