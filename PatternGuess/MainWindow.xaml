@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PatternGuess"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Угадай паттерн" Height="450" Width="800">
+    <Grid x:Name="MainGrid" Loaded="MainGrid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="ScoreTextBlock"
+                   Grid.Row="0"
+                   Text="Правильных ответов: 0"
+                   HorizontalAlignment="Center"
+                   FontSize="18"
+                   Margin="10" />
+
+        <Image x:Name="QuestionImage"
+               Grid.Row="1"
+               Stretch="Uniform"
+               Margin="10" />
+
+        <StackPanel x:Name="ButtonsPanel"
+                    Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="10">
+            
+            <Button x:Name="AnswerButton1"
+                     Margin="5"
+                     Padding="10"
+                     FontSize="16"
+                     Click="AnswerButton_Click" 
+                     Background="White" 
+                     BorderBrush="#FF00B9FF"/>
+            <Button x:Name="AnswerButton2"
+                     Margin="5"
+                     Padding="10"
+                     FontSize="16"
+                     Click="AnswerButton_Click" 
+                     Background="White" 
+                     BorderBrush="#FF00B9FF"/>
+            <Button x:Name="AnswerButton3"
+                     Margin="5"
+                     Padding="10"
+                     FontSize="16"
+                     Click="AnswerButton_Click" 
+                     Background="White" 
+                     BorderBrush="#FF00B9FF"/>
+            <Button x:Name="AnswerButton4"
+                     Margin="5"
+                     Padding="10"
+                     FontSize="16"
+                     Click="AnswerButton_Click"
+                     Background="White" 
+                     BorderBrush="#FF00B9FF"/>
+        </StackPanel>
+
     </Grid>
 </Window>
