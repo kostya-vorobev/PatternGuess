@@ -22,5 +22,12 @@ namespace UnitTestProject
             var validNames = new List<string> { "Singleton", "Factory", "Observer", "Decorator", "Strategy" };
             Assert.Contains(pattern.VeryAnswer, validNames);
         }
+
+        [Fact]
+        public void PatternReturnWrongAnswer()
+        {
+            Pattern pattern = new Pattern();
+            Assert.Equal(3, pattern.GetWrongAnswers(3).Count);
+        }
     }
 }
