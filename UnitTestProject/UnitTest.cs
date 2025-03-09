@@ -2,6 +2,7 @@
 using System.Linq;
 using Xunit;
 using PatternGuess;
+using System.Collections.Generic;
 
 namespace UnitTestProject
 {
@@ -12,6 +13,14 @@ namespace UnitTestProject
         {
             Pattern pattern = new Pattern();
             Assert.NotNull(pattern);
+        }
+
+        [Fact]
+        public void PatternReturnAnswer()
+        {
+            Pattern pattern = new Pattern();
+            var validNames = new List<string> { "Singleton", "Factory", "Observer", "Decorator", "Strategy" };
+            Assert.Contains(pattern.VeryAnswer, validNames);
         }
     }
 }
