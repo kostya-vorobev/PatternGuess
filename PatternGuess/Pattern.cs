@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace PatternGuess
 {
@@ -45,6 +47,21 @@ namespace PatternGuess
             }
 
             return wrongAnswers;
+        }
+
+        public BitmapImage GetImageFromFile(string filePath)
+        {
+            filePath = "src/img/" + filePath + ".png";
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException("Файл изображения не найден.", filePath);
+
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = new Uri(filePath, UriKind.RelativeOrAbsolute);
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.EndInit();
+
+            return image;
         }
     }
 }
